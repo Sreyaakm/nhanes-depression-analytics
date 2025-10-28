@@ -1,1 +1,34 @@
 # nhanes-depression-analytics
+
+## 📂 NHANES Datasets Used (2017–2018)
+
+This project uses publicly available data from the **National Health and Nutrition Examination Survey (NHANES)** conducted by the **Centers for Disease Control and Prevention (CDC)**.  
+The analysis focuses on the **2017–2018** cycle, using mental-health, laboratory, examination, and demographic components.
+
+All datasets are merged by the participant identifier variable **`SEQN`**.
+
+| **Category** | **Dataset Name** | **File Name** | **Key Variables** | **Explanation / What Each Variable Represents** |
+|--------------|------------------|---------------|-------------------|------------------------------------------------|
+| **Questionnaire** | *Mental Health – Depression Screener* | `DPQ_J.XPT` | `DPQ010`–`DPQ090`, `DPQ100` | Patient Health Questionnaire-9 (PHQ-9) items assessing depressive symptoms such as low interest, sadness, fatigue, sleep disturbance, appetite change, poor concentration, movement changes, and self-harm thoughts. `DPQ100` captures how difficult these problems made daily life. |
+| **Laboratory** | *High-Sensitivity C-Reactive Protein (CRP)* | `HSCRP_J.XPT` | `LBXHSCRP`, `LBDHRPLC` | `LBXHSCRP`: serum CRP (mg/L), an inflammation biomarker. `LBDHRPLC`: comment code noting results below detection limits or quality flags. |
+|  | *Insulin* | `INS_J.XPT` | `LBXIN`, `LBDINSI`, `LBDINLC` | `LBXIN`: fasting insulin (µU/mL). `LBDINSI`: SI unit conversion (pmol/L). `LBDINLC`: comment code for low or invalid readings. Analyses using fasting insulin must apply **`WTSAF2YR`** from `DEMO_J` for weighting. |
+|  | *Plasma Fasting Glucose* | `GLU_J.XPT` | `LBXGLU`, `LBDGLUSI` | `LBXGLU`: fasting plasma glucose (mg/dL). `LBDGLUSI`: SI units (mmol/L). Analyses using fasting glucose must apply **`WTSAF2YR`** from `DEMO_J`. |
+| **Laboratory** | *Complete Blood Count (CBC)* | `CBC_J.XPT` | `LBXWBCSI`, `LBDLYMNO`, `LBDMONO`, `LBDNENO`, `LBDEONO`, `LBDBANO`, `LBXRBCSI`, `LBXHGB`, `LBXHCT`, `LBXPLTSI` | CBC provides comprehensive blood cell and hemoglobin metrics: white blood cells, lymphocytes, monocytes, neutrophils, eosinophils, basophils, red blood cells, hemoglobin, hematocrit, and platelets — indicators of immune, oxygen-carrying, and clotting functions. |
+| **Examination** | *Body Measures* | `BMX_J.XPT` | `BMXWT`, `BMXHT`, `BMXBMI`, `BMXWAIST`, `BMXHIP` | Anthropometric measures including weight (kg), height (cm), BMI, waist, and hip circumference. Used to compute **waist-to-hip ratio** (`BMXWAIST / BMXHIP`) for body-composition analysis. |
+| **Demographics** | *Demographic Variables* | `DEMO_J.XPT` | `SEQN`, `RIDAGEYR`, `RIAGENDR`, `RIDRETH3`, `DMDEDUC2`, `DMDMARTL`, `DMDHHSIZ`, `INDFMPIR` | Provides participant demographic and socioeconomic background: age, sex, race/ethnicity, education level, marital status, household size, and family income-to-poverty ratio. |
+
+---
+
+### 🔹 Data Source
+All datasets were downloaded from the official NHANES data portal:  
+👉 [https://wwwn.cdc.gov/nchs/nhanes/](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017))
+
+### 🔹 Notes
+- The **`SEQN`** variable links all components for each participant.  
+- Only key analytical variables are shown; other QC and auxiliary fields were reviewed but excluded for brevity.  
+- Weight selection rule of thumb:  
+  - Use **`WTINT2YR`** for interview-only variables (e.g., questionnaires).  
+  - Use **`WTMEC2YR`** for MEC/exam variables (e.g., body measures).  
+  - Use **`WTSAF2YR`** for fasting subsample lab analyses (e.g., insulin, glucose).  
+- Together, these datasets allow integrated study of **mental health (PHQ-9)**, **biomarkers (CRP, glucose, insulin, CBC)**, **physical health (BMI, waist-to-hip ratio)**, and **socioeconomic context**.
+
