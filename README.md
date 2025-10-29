@@ -35,7 +35,7 @@ All datasets were downloaded from the official NHANES data portal:
 ## Notebook: Notebook_Rawfiles_Conversion_to_CSV.ipynb
 This notebook contains the code shows all .csv files converted from NHANES .xpt data files in a single directory for the 2017–2018 cycle in less time instead of manually converting one after another.
 
-## Notebook: 01_explore_phq9.ipynb
+## Notebook: Notebook_01_explore_phq9.ipynb
 **Objective:**
 
 Load and inspect the PHQ-9 depression screener data (DPQ_J.XPT / DPQ_J.csv) from the NHANES 2017–2018 cycle to determine its quality and structure before analysis.
@@ -53,4 +53,22 @@ Load and inspect the PHQ-9 depression screener data (DPQ_J.XPT / DPQ_J.csv) from
 **Expected Outcome:**
 
 A cleaned dataset where each record is a participant and each column is a PHQ-9 survey question. This step ensures data consistency and readiness for merging with demographic data.
+
+## Notebook: Notebook_02_merge_demo_depression.ipynb
+**Objective:**
+• Combine the NHANES Demographics data set (DEMO_J.XPT / DEMO_J.csv) and the Depression Screener data set (DPQ_J.XPT / DPQ_J.csv) using the common participant ID SEQN.
+• This combination adds background demographic information (age, sex, race, education, marital status, income) to mental health responses, creating one data set for analysis.
+
+**Tasks Performed:**
+• Loaded both data sets (DEMO_J and DPQ_J) with pandas.
+• Verified for uniqueness of SEQN in every dataset to ensure that it can be utilized as an effective merge key.
+• Executed an inner join based on SEQN, keeping only the participants that occur in both datasets.
+• Compared dataset shapes before and after merging to ensure merging was successful.
+• Reviewed merged data preview for successful integration of variables.
+
+
+**Outcome:**
+• A merged dataset containing 5,533 participants who have both demographic and PHQ-9 depression data and 56 variables with SEQN in common.
+• The merged file now includes core demographic variables (age, sex, race, education, marital status, household size, income-to-poverty ratio) alongside PHQ-9 survey responses, ready for further statistical modeling or exploratory analysis.
+• This result aligns with NHANES design, where only a subset of respondents complete the mental-health screener.
 
