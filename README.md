@@ -71,6 +71,14 @@ A cleaned dataset where each record is a participant and each column is a PHQ-9 
 
 • Ordered value counts (0, 1, 2, 3, 7, 9, NaN) in a sequence that corresponds with the codebook to maintain consistency of representation across all PHQ-9 items.
 
+• Counted the number of responses that were coded as 7 (“Refused”) and 9 (“Don’t know”) for each PHQ-9 item.
+
+• Calculated the total number of unique participants who had at least one skipped/refused response.
+
+• Verified that a small subset of participants, 26 in total, had 61 non-responses across the items.
+
+• Recoded 7 and 9 into NaN in order to handle them as missing values in subsequent analyses.
+
 • Ensured accuracy and completeness of data before merging with DEMO_J (demographic data).
 
 • Verified for uniqueness of SEQN in every dataset to ensure that it can be utilized as an effective merge key.
