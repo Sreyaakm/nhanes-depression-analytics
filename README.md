@@ -65,6 +65,14 @@ A cleaned dataset where each record is a participant and each column is a PHQ-9 
 
 • Loaded both data sets (DEMO_J and DPQ_J) with pandas.
 
+• Replaced small floating-point artifacts, such as 5.39e-79, with 0 values.
+
+• Verified that updated counts matched the official NHANES DPQ_J codebook exactly.
+
+• Ordered value counts (0, 1, 2, 3, 7, 9, NaN) in a sequence that corresponds with the codebook to maintain consistency of representation across all PHQ-9 items.
+
+• Ensured accuracy and completeness of data before merging with DEMO_J (demographic data).
+
 • Verified for uniqueness of SEQN in every dataset to ensure that it can be utilized as an effective merge key.
 
 • Executed an inner join based on SEQN, keeping only the participants that occur in both datasets.
