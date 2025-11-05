@@ -32,10 +32,10 @@ All datasets were downloaded from the official NHANES data portal:
   - Use **`WTSAF2YR`** for fasting subsample lab analyses (e.g., insulin, glucose).  
 - Together, these datasets allow integrated study of **mental health (PHQ-9)**, **biomarkers (CRP, glucose, insulin, CBC)**, **physical health (BMI, waist-to-hip ratio)**, and **socioeconomic context**.
 
-## Notebook: Notebook_Rawfiles_Conversion_to_CSV.ipynb
+## Notebook: Rawfiles_Conversion_to_CSV.ipynb
 This notebook contains the code shows all .csv files converted from NHANES .xpt data files in a single directory for the 2017–2018 cycle in less time instead of manually converting one after another.
 
-## Notebook: Notebook_01_explore_phq9.ipynb
+## Notebook: 01_explore_phq9.ipynb
 **Objective:**
 
 Load and inspect the PHQ-9 depression screener data (DPQ_J.XPT / DPQ_J.csv) from the NHANES 2017–2018 cycle to determine its quality and structure before analysis.
@@ -54,7 +54,7 @@ Load and inspect the PHQ-9 depression screener data (DPQ_J.XPT / DPQ_J.csv) from
 
 A cleaned dataset where each record is a participant and each column is a PHQ-9 survey question. This step ensures data consistency and readiness for merging with demographic data.
 
-## Notebook: Notebook_02_merge_demo_depression.ipynb
+## Notebook: 02_merge_demo_depression.ipynb
 **Objective:**
 
 • Combine the NHANES Demographics data set (DEMO_J.XPT / DEMO_J.csv) and the Depression Screener data set (DPQ_J.XPT / DPQ_J.csv) using the common participant ID SEQN.
