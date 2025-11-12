@@ -89,7 +89,6 @@ A cleaned dataset where each record is a participant and each column is a PHQ-9 
 
 • Reviewed merged data preview for successful integration of variables.
 
-
 **Outcome:**
 
 • A merged dataset containing 5,533 participants who have both demographic and PHQ-9 depression data and 56 variables with SEQN in common.
@@ -97,4 +96,36 @@ A cleaned dataset where each record is a participant and each column is a PHQ-9 
 • The merged file now includes core demographic variables (age, sex, race, education, marital status, household size, income-to-poverty ratio) alongside PHQ-9 survey responses, ready for further statistical modeling or exploratory analysis.
 
 • This result aligns with NHANES design, where only a subset of respondents complete the mental-health screener.
+
+## Notebook: 03_depression_outcome.ipynb
+**Objective:**
+
+• To calculate PHQ-9 depression outcomes using the merged and cleaned dataset from Notebook 02.
+
+• This notebook computes the total PHQ-9 scores for each respondent, determines probable cases of depression (PHQ-9 ≥ 10), and summarizes overall prevalence and data completeness for further analysis.
+
+**Tasks Performed:**
+• Imported the merged dataset, which was created in Notebook 02: merged_DPQJ_DEMOJ_cleaned.csv.
+
+• Calculated the number of PHQ-9 items answered and each participant's total PHQ-9 score.
+
+• Generated descriptive statistics-count, mean, standard deviation, min, max, quartiles-to assess the distribution of scores.
+
+• Created a binary variable for probable depression using PHQ-9 ≥ 10.
+
+• Calculated the percentage of participants meeting the PHQ-9 ≥ 10 criterion.
+
+• Exported the preprocessed dataset to data_processed/merged_with_phq9_scores.csv.
+
+• Wrote an interpretation summary that described participant counts, prevalence, and data quality.
+
+**Expected Outcome:**
+
+• A cleaned dataset that contains:
+
+• Total PHQ-9 score for each participant and number of items answered. A binary variable indicating probable depression (PHQ-9 ≥ 10). 
+
+• Summary statistics and prevalence estimates for depression in the NHANES 2017–2018 sample. 
+
+• This dataset will serve as the input for further statistical analysis in the next stage of the project.
 
