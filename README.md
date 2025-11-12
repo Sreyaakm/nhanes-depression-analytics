@@ -105,6 +105,7 @@ A cleaned dataset where each record is a participant and each column is a PHQ-9 
 • This notebook computes the total PHQ-9 scores for each respondent, determines probable cases of depression (PHQ-9 ≥ 10), and summarizes overall prevalence and data completeness for further analysis.
 
 **Tasks Performed:**
+
 • Imported the merged dataset, which was created in Notebook 02: merged_DPQJ_DEMOJ_cleaned.csv.
 
 • Calculated the number of PHQ-9 items answered and each participant's total PHQ-9 score.
